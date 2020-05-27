@@ -547,7 +547,7 @@ uint8_t DFRobot_SHT3x::checkCrc(uint8_t data[])
         for (bit = 8; bit > 0; --bit)
         {
             if (crc & 0x80)
-                crc = (crc << 1) ^ 0x131;
+                crc = (crc << 1) ^ 0x31;
             else
                 crc = (crc << 1);
         }
