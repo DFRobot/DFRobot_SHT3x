@@ -1,7 +1,7 @@
 /*!
  * @file DFRobot_SHT3x.h
- * @brief Define the infrastructure and the implementation of the underlying method of the DFRobot_SHT3x class, 
- * 
+ * @brief Define the infrastructure and the implementation of the underlying method of the DFRobot_SHT3x class,
+ *
  * @copyright   Copyright (c) 2010 DFRobot Co.Ltd (http://www.dfrobot.com)
  * @licence     The MIT License (MIT)
  * @author [fengli](li.feng@dfrobot.com)
@@ -23,7 +23,7 @@ DFRobot_SHT3x::DFRobot_SHT3x(TwoWire *pWire, uint8_t address,uint8_t RST)
   digitalWrite(_RST,HIGH);
 }
 
-int DFRobot_SHT3x::begin() 
+int DFRobot_SHT3x::begin()
 {
   _pWire->begin();
   uint8_t data[2];
@@ -61,7 +61,7 @@ bool DFRobot_SHT3x::softReset()
   registerRaw = readStatusRegister();
   if(registerRaw.commandStatus == 0)
     return true;
-  else 
+  else
     return false;
 }
 
@@ -77,12 +77,12 @@ bool DFRobot_SHT3x::pinReset()
   registerRaw = readStatusRegister();
   if(registerRaw.systemResetDeteced == 1)
     return true;
-  else 
+  else
     return false;
 }
 
 bool DFRobot_SHT3x::stopPeriodicMode()
-{  
+{
   sStatusRegister_t registerRaw;
   measurementMode = eOneShot;
   writeCommand(SHT3X_CMD_STOP_PERIODIC_ACQUISITION_MODE,2);
@@ -90,7 +90,7 @@ bool DFRobot_SHT3x::stopPeriodicMode()
   registerRaw = readStatusRegister();
   if(registerRaw.commandStatus == 0)
     return true;
-  else 
+  else
     return false;
 }
 
@@ -102,7 +102,7 @@ bool DFRobot_SHT3x::heaterEnable()
   registerRaw = readStatusRegister();
   if(registerRaw.heaterStaus == 1)
     return true;
-  else 
+  else
     return false;
 }
 
@@ -114,7 +114,7 @@ bool DFRobot_SHT3x::heaterDisable()
   registerRaw = readStatusRegister();
   if(registerRaw.heaterStaus == 0)
     return true;
-  else 
+  else
     return false;
 }
 
@@ -153,7 +153,8 @@ DFRobot_SHT3x::sRHAndTemp_t DFRobot_SHT3x::readTemperatureAndHumidity(eRepeatabi
     return tempRH;
   }
   tempRH.TemperatureC = convertTemperature(rawTemperature);
-  tempRH.TemperatureF = (9/5)*tempRH.TemperatureC+32;
+  float nineFifths = 9.0/5.0;
+  tempRH.TemperatureF = nineFifths*tempRH.TemperatureC + 32;
   tempRH.Humidity = convertHumidity(rawHumidity);
   return tempRH;
 }
@@ -200,7 +201,7 @@ bool DFRobot_SHT3x::startPeriodicMode(eMeasureFrequency_t measureFreq,eRepeatabi
   registerRaw = readStatusRegister();
   if(registerRaw.commandStatus == 0)
     return true;
-  else 
+  else
     return false;
 }
 
@@ -222,7 +223,7 @@ DFRobot_SHT3x::sStatusRegister_t DFRobot_SHT3x::readStatusRegister(){
   return registerRaw;
 }
 uint8_t DFRobot_SHT3x::environmentState()
-{ 
+{
   sStatusRegister_t registerRaw;
   float rhHighSet ;
   float rhLowSet ;
@@ -261,7 +262,7 @@ uint8_t DFRobot_SHT3x::environmentState()
   }
 
   return 0 ;
-  
+
 }
 DFRobot_SHT3x::sRHAndTemp_t DFRobot_SHT3x::readTemperatureAndHumidity()
 {
@@ -274,7 +275,7 @@ DFRobot_SHT3x::sRHAndTemp_t DFRobot_SHT3x::readTemperatureAndHumidity()
   memcpy(rawTemperature,rawData,3);
   memcpy(rawHumidity,rawData+3,3);
   if((checkCrc(rawTemperature) != rawTemperature[2]) || (checkCrc(rawHumidity) != rawHumidity[2])){
-    tempRH.ERR = -1; 
+    tempRH.ERR = -1;
     return tempRH;
   }
   tempRH.TemperatureC = convertTemperature(rawTemperature);
@@ -286,7 +287,7 @@ DFRobot_SHT3x::sRHAndTemp_t DFRobot_SHT3x::readTemperatureAndHumidity()
 uint8_t  DFRobot_SHT3x::setTemperatureLimitC(float highset,float highclear, float lowset,float lowclear)
 {
   uint16_t _highset ,_highclear,_lowclear,_lowset,limit[1];
-  
+
   if(highset > highclear && highclear > lowclear && lowclear> lowset){
     _highset = convertRawTemperature(highset);
     if(readLimitData(SHT3X_CMD_READ_HIGH_ALERT_LIMIT_SET,limit) != 0) {
@@ -315,7 +316,7 @@ uint8_t  DFRobot_SHT3x::setTemperatureLimitC(float highset,float highclear, floa
   } else {
     return 1;
   }
-   
+
   return 0;
 }
 uint8_t DFRobot_SHT3x::setTemperatureLimitF(float highset,float highclear,float lowset,float lowclear)
@@ -340,7 +341,7 @@ uint8_t DFRobot_SHT3x::setHumidityLimitRH(float highset,float highclear, float l
     }
     _highset = (_highset & 0xFE00) |(limit[1] & 0x1FF);
     writeLimitData(SHT3X_CMD_WRITE_HIGH_ALERT_LIMIT_SET,_highset);
-    
+
     _highclear = convertRawHumidity(highclear);
     if(readLimitData(SHT3X_CMD_READ_HIGH_ALERT_LIMIT_CLEAR,limit) != 0){
       return 1;
@@ -434,7 +435,7 @@ float DFRobot_SHT3x::getTemperatureLowSetF(){
   return limitData.lowSet;
 }
 uint8_t DFRobot_SHT3x::readLimitData(uint16_t cmd,uint16_t *pBuf)
-{ 
+{
   uint8_t rawData[3];
   uint8_t crc;
 
@@ -489,7 +490,7 @@ bool DFRobot_SHT3x::measureHumidityLimitRH()
     return false;
   }
   limitData.lowClear = convertHumidityLimitData(limit);
-  
+
   if(readLimitData(SHT3X_CMD_READ_LOW_ALERT_LIMIT_SET,limit) != 0){
     return false;
   }
