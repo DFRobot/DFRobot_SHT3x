@@ -26,7 +26,6 @@ DFRobot_SHT3x::DFRobot_SHT3x(TwoWire *pWire, uint8_t address,uint8_t RST)
 int DFRobot_SHT3x::begin() 
 {
   _pWire->begin();
-  uint8_t data[2];
   if(readSerialNumber() == 0){
     DBG("bus data access error");
     return ERR_DATA_BUS;
