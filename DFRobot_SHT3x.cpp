@@ -153,7 +153,7 @@ DFRobot_SHT3x::sRHAndTemp_t DFRobot_SHT3x::readTemperatureAndHumidity(eRepeatabi
     return tempRH;
   }
   tempRH.TemperatureC = convertTemperature(rawTemperature);
-  tempRH.TemperatureF = (9/5)*tempRH.TemperatureC+32;
+  tempRH.TemperatureF = (9.0/5.0)*tempRH.TemperatureC+32;
   tempRH.Humidity = convertHumidity(rawHumidity);
   return tempRH;
 }
@@ -279,7 +279,7 @@ DFRobot_SHT3x::sRHAndTemp_t DFRobot_SHT3x::readTemperatureAndHumidity()
   }
   tempRH.TemperatureC = convertTemperature(rawTemperature);
   tempRH.Humidity = convertHumidity(rawHumidity);
-  tempRH.TemperatureF = (9/5)*tempRH.TemperatureC+32;
+  tempRH.TemperatureF = (9.0/5.0)*tempRH.TemperatureC+32;
   return tempRH;
 }
 
