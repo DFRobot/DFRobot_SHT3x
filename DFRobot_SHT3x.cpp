@@ -122,6 +122,7 @@ void DFRobot_SHT3x::clearStatusRegister(){
   writeCommand(SHT3X_CMD_CLEAR_STATUS_REG,2);
   delay(10);
 }
+
 bool DFRobot_SHT3x::readAlertState()
 {
   sStatusRegister_t registerRaw;
@@ -153,7 +154,7 @@ DFRobot_SHT3x::sRHAndTemp_t DFRobot_SHT3x::readTemperatureAndHumidity(eRepeatabi
     return tempRH;
   }
   tempRH.TemperatureC = convertTemperature(rawTemperature);
-  tempRH.TemperatureF = (9.0/5.0)*tempRH.TemperatureC+32;
+  tempRH.TemperatureF = (9/5)*tempRH.TemperatureC+32;
   tempRH.Humidity = convertHumidity(rawHumidity);
   return tempRH;
 }
@@ -279,7 +280,7 @@ DFRobot_SHT3x::sRHAndTemp_t DFRobot_SHT3x::readTemperatureAndHumidity()
   }
   tempRH.TemperatureC = convertTemperature(rawTemperature);
   tempRH.Humidity = convertHumidity(rawHumidity);
-  tempRH.TemperatureF = (9.0/5.0)*tempRH.TemperatureC+32;
+  tempRH.TemperatureF = (9/5)*tempRH.TemperatureC+32;
   return tempRH;
 }
 
@@ -547,7 +548,7 @@ uint8_t DFRobot_SHT3x::checkCrc(uint8_t data[])
         for (bit = 8; bit > 0; --bit)
         {
             if (crc & 0x80)
-                crc = (crc << 1) ^ 0x31;
+                crc = (crc << 1) ^ 0x131;
             else
                 crc = (crc << 1);
         }

@@ -21,6 +21,10 @@ SHT30      |     ±0.2  @0-65 °C        |        ±2 @10-90% RH          |  -40
 SHT31      |     ±0.2  @0-90 °C        |        ±2 @0-100% RH          |  -40-125 °C/0-100 %RH 
 SHT35      |     ±0.1  @20-60°C        |        ±1.5 @0-80% RH         |  -40-125 °C/0-100 %RH 
 
+![SVG Figure](https://github.com/ouki-wang/DFRobot_Sensor/raw/master/resources/images/SEN0245svg1.png)
+
+## Product Link（链接到英文商城）
+    SKU: SHT3x Temperature and Humidity Sensor(以实际名称为准)
    
 ## Table of Contents
 
