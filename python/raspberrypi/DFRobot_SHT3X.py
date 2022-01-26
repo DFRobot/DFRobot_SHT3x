@@ -458,10 +458,10 @@ class DFRobot_SHT3x:
      @return: A return to 0 indicates a successful setting.
   '''
   def set_temperature_limit_F(self,high_set,high_clear, low_set,low_clear):
-    _high_set = (high_set - 32) * 5 / 9
-    _high_clear = (high_clear - 32) * 5 / 9
-    _low_clear = (low_clear - 32) * 5 / 9
-    _low_set = (low_set - 32) * 5 / 9
+    _high_set = (high_set - 32) * 5.0 / 9.0
+    _high_clear = (high_clear - 32) * 5.0 / 9.0
+    _low_clear = (low_clear - 32) * 5.0 / 9.0
+    _low_set = (low_set - 32) * 5.0 / 9.0
     ret =1
     if(self.set_temperature_limit_C(_high_set,_high_clear,_low_set,_low_clear) == 0):
       ret = 0
@@ -588,7 +588,7 @@ class DFRobot_SHT3x:
     limit = buf[0]
     limit = limit<< 8 | buf[1]
     data = self.__convert_temp_limit_data(limit)
-    self.limit_Data[HIGH_SET] = round((data * 9 / 5 + 32),2)
+    self.limit_Data[HIGH_SET] = round((data * 9 / 5.0 + 32),2)
 
     self.__write_reg(SHT3X_CMD_READ_HIGH_ALERT_LIMIT_CLEAR>>8,SHT3X_CMD_READ_HIGH_ALERT_LIMIT_CLEAR&0xFF)
     time.sleep(0.001)
@@ -598,7 +598,7 @@ class DFRobot_SHT3x:
     limit = buf[0]
     limit = limit<< 8 | buf[1]
     data = self.__convert_temp_limit_data(limit)
-    self.limit_Data[HIGH_CLEAR] = round(d(data * 9 / 5 + 32),2)
+    self.limit_Data[HIGH_CLEAR] = round(d(data * 9 / 5.0 + 32),2)
 
     self.__write_reg(SHT3X_CMD_READ_LOW_ALERT_LIMIT_CLEAR>>8,SHT3X_CMD_READ_LOW_ALERT_LIMIT_CLEAR&0xFF)
     time.sleep(0.001)
@@ -608,7 +608,7 @@ class DFRobot_SHT3x:
     limit = buf[0]
     limit = limit<< 8 | buf[1]
     data = self.__convert_temp_limit_data(limit)
-    self.limit_Data[LOW_CLEAR] = round((data * 9 / 5 + 32),2)
+    self.limit_Data[LOW_CLEAR] = round((data * 9 / 5.0 + 32),2)
 
     self.__write_reg(SHT3X_CMD_READ_LOW_ALERT_LIMIT_SET>>8,SHT3X_CMD_READ_LOW_ALERT_LIMIT_SET&0xFF)
     time.sleep(0.001)
@@ -618,7 +618,7 @@ class DFRobot_SHT3x:
     limit = buf[0]
     limit = limit<< 8 | buf[1]
     data = self.__convert_temp_limit_data(limit)
-    self.limit_Data[LOW_SET] = round((data * 9 / 5 + 32),2)
+    self.limit_Data[LOW_SET] = round((data * 9 / 5.0 + 32),2)
     return True
 
   '''
