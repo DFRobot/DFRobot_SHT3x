@@ -154,7 +154,7 @@ DFRobot_SHT3x::sRHAndTemp_t DFRobot_SHT3x::readTemperatureAndHumidity(eRepeatabi
     return tempRH;
   }
   tempRH.TemperatureC = convertTemperature(rawTemperature);
-  tempRH.TemperatureF = (9/5)*tempRH.TemperatureC+32;
+  tempRH.TemperatureF = 1.8*tempRH.TemperatureC+32;
   tempRH.Humidity = convertHumidity(rawHumidity);
   return tempRH;
 }
@@ -280,7 +280,7 @@ DFRobot_SHT3x::sRHAndTemp_t DFRobot_SHT3x::readTemperatureAndHumidity()
   }
   tempRH.TemperatureC = convertTemperature(rawTemperature);
   tempRH.Humidity = convertHumidity(rawHumidity);
-  tempRH.TemperatureF = (9/5)*tempRH.TemperatureC+32;
+  tempRH.TemperatureF = 1.8*tempRH.TemperatureC+32;
   return tempRH;
 }
 
@@ -322,10 +322,10 @@ uint8_t  DFRobot_SHT3x::setTemperatureLimitC(float highset,float highclear, floa
 uint8_t DFRobot_SHT3x::setTemperatureLimitF(float highset,float highclear,float lowset,float lowclear)
 {
   float _highset ,_highclear,_lowclear,_lowset;
-  _highset = (highset - 32) * 5 / 9;
-  _highclear = (highclear - 32) * 5 / 9;
-  _lowclear = (lowclear - 32) * 5 / 9;
-  _lowset = (lowset - 32) * 5 / 9;
+  _highset = (highset - 32.0) * 5.0 / 9.0;
+  _highclear = (highclear - 32.0) * 5.0 / 9.0;
+  _lowclear = (lowclear - 32.0) * 5.0 / 9.0;
+  _lowset = (lowset - 32.0) * 5.0 / 9.0;
   if(setTemperatureLimitC(_highset,_highclear,_lowset,_lowclear) == 0){
     return 0;
   }
@@ -401,22 +401,22 @@ bool DFRobot_SHT3x::measureTemperatureLimitF()
     return false;
   }
   data = convertTempLimitData(limit);
-  limitData.highSet = round(data * 9 / 5 + 32);
+  limitData.highSet = round(data * 9.0 / 5.0 + 32.0);
   if(readLimitData(SHT3X_CMD_READ_HIGH_ALERT_LIMIT_CLEAR,limit) != 0){
     return false;
   }
   data = convertTempLimitData(limit);
-  limitData.highClear = round(data * 9 / 5 + 32);
+  limitData.highClear = round(data * 9.0 / 5.0 + 32.0);
   if(readLimitData(SHT3X_CMD_READ_LOW_ALERT_LIMIT_CLEAR,limit) != 0){
     return false;
   }
   data = convertTempLimitData(limit);
-  limitData.lowClear = round(data * 9 / 5 + 32);
+  limitData.lowClear = round(data * 9.0 / 5.0 + 32.0);
   if(readLimitData(SHT3X_CMD_READ_LOW_ALERT_LIMIT_SET,limit) != 0){
     return false;
   }
   data = convertTempLimitData(limit);
-  limitData.lowSet = round(data * 9 / 5 + 32);
+  limitData.lowSet = round(data * 9.0 / 5.0 + 32.0);
   return true;
 
 }
