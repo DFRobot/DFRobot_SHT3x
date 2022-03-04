@@ -1,7 +1,7 @@
 /*!
  * @file periodicDataReading.ino
  * @brief Read ambient temperature (C/F) and relative humidity (%RH) in cycle read mode.
- * @n Experimental phenomenon: Before we start, please set the read frequency and repeatability of the read
+ * @details Experimental phenomenon: Before we start, please set the read frequency and repeatability of the read
  * (the difference between the data measured by the chip under the same measurement conditions),
  * and enter the periodic read mode, and then read the temperature and humidity data.
  * @n The temperature and humidity data will be printed at the serial port, after 10 seconds of operation.
@@ -9,11 +9,10 @@
  * @n Single measurement mode: reflect the difference between the two modes of reading data.
  * @n Cycle measurement mode: the chip periodically monitors temperature and humidity, only in this mode the ALERT pin will work.
  * @copyright  Copyright (c) 2010 DFRobot Co.Ltd (http://www.dfrobot.com)
- * @licence     The MIT License (MIT)
+ * @License     The MIT License (MIT)
  * @author [fengli](li.feng@dfrobot.com)
  * @version  V1.0
  * @date  2019-08-20
- * @get from https://www.dfrobot.com
  * @url https://github.com/DFRobot/DFRobot_SHT3x
 */
 

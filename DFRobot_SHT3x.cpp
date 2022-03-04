@@ -1,13 +1,12 @@
 /*!
- * @file DFRobot_SHT3x.h
+ * @file DFRobot_SHT3x.cpp
  * @brief Define the infrastructure and the implementation of the underlying method of the DFRobot_SHT3x class, 
  * 
  * @copyright   Copyright (c) 2010 DFRobot Co.Ltd (http://www.dfrobot.com)
- * @licence     The MIT License (MIT)
+ * @License     The MIT License (MIT)
  * @author [fengli](li.feng@dfrobot.com)
  * @version  V1.0
  * @date  2019-08-20
- * @get from https://www.dfrobot.com
  * @url https://github.com/DFRobot/DFRobot_SHT3x
  */
 

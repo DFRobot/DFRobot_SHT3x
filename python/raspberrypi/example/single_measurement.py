@@ -6,11 +6,10 @@
   # then read the temperature and humidity data and print the data in the serial port.
   # @n Single measure mode: read data as needed, power consumption is relatively low, the chip idle state only costs 0.5mA. 
   # @copyright  Copyright (c) 2010 DFRobot Co.Ltd (http://www.dfrobot.com)
-  # @licence     The MIT License (MIT)
+  # @License     The MIT License (MIT)
   # @author      [yangfeng]<feng.yang@dfrobot.com>
   # version  V1.0
   # date  2021-06-11
-  # @get from https://www.dfrobot.com
   # @url https://github.com/DFRobot/DFRobot_SHT3x
 """
 import sys
