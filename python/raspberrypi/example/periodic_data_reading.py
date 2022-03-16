@@ -1,20 +1,21 @@
 # -*- coding:utf-8 -*-
-""" file periodic_data_reading.py
-  # @brief Read ambient temperature (C/F) and relative humidity (%RH) in cycle read mode.
-  # @n Experimental phenomenon: Before we start, please set the read frequency and repeatability of the read
-  # (the difference between the data measured by the chip under the same measurement conditions),
-  # and enter the periodic read mode, and then read the temperature and humidity data.
-  # @n The temperature and humidity data will be printed at the serial port, after 10 seconds of operation.
-  # @n It will exit the cycle mode and enter 2 measurement mode: Single measurement mode and Cycle measurement mode.
-  # @n Single measurement mode: reflect the difference between the two modes of reading data.
-  # @n Cycle measurement mode: the chip periodically monitors temperature and humidity, only in this mode the ALERT pin will work.
-  # @copyright  Copyright (c) 2010 DFRobot Co.Ltd (http://www.dfrobot.com)
-  # @License     The MIT License (MIT)
-  # @author      [yangfeng]<feng.yang@dfrobot.com>
-  # version  V1.0
-  # date  2021-06-11
-  # @url https://github.com/DFRobot/DFRobot_SHT3x
-"""
+'''!
+   @file periodic_data_reading.py
+   @brief Read ambient temperature (C/F) and relative humidity (%RH) in cycle read mode.
+   @n Experimental phenomenon: Before we start, please set the read frequency and repeatability of the read
+   (the difference between the data measured by the chip under the same measurement conditions),
+   and enter the periodic read mode, and then read the temperature and humidity data.
+   @n The temperature and humidity data will be printed at the serial port, after 10 seconds of operation.
+   @n It will exit the cycle mode and enter 2 measurement mode: Single measurement mode and Cycle measurement mode.
+   @n Single measurement mode: reflect the difference between the two modes of reading data.
+   @n Cycle measurement mode: the chip periodically monitors temperature and humidity, only in this mode the ALERT pin will work.
+   @copyright  Copyright (c) 2010 DFRobot Co.Ltd (http://www.dfrobot.com)
+   @License     The MIT License (MIT)
+   @author      [yangfeng]<feng.yang@dfrobot.com>
+   version  V1.0
+   date  2021-06-11
+   @url https://github.com/DFRobot/DFRobot_SHT3x
+'''
 import sys
 sys.path.append("../") # set system path to top
 import time
