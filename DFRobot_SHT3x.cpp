@@ -25,7 +25,6 @@ DFRobot_SHT3x::DFRobot_SHT3x(TwoWire *pWire, uint8_t address,uint8_t RST)
 int DFRobot_SHT3x::begin() 
 {
   _pWire->begin();
-  uint8_t data[2];
   if(readSerialNumber() == 0){
     DBG("bus data access error");
     return ERR_DATA_BUS;
@@ -140,9 +139,9 @@ DFRobot_SHT3x::sRHAndTemp_t DFRobot_SHT3x::readTemperatureAndHumidity(eRepeatabi
   uint8_t rawHumidity[3];
   tempRH.ERR = 0;
       switch(repeatability){
-        case eRepeatability_High:writeCommand(SHT3X_CMD_GETDATA_H_CLOCKENBLED,2);break;
-        case eRepeatability_Medium:writeCommand(SHT3X_CMD_GETDATA_M_CLOCKENBLED,2);break;
-        case eRepeatability_Low:writeCommand(SHT3X_CMD_GETDATA_L_CLOCKENBLED,2);break;
+        case eRepeatability_High:writeCommand(SHT3X_CMD_GETDATA_POLLING_H,2);break;
+        case eRepeatability_Medium:writeCommand(SHT3X_CMD_GETDATA_POLLING_M,2);break;
+        case eRepeatability_Low:writeCommand(SHT3X_CMD_GETDATA_POLLING_L,2);break;
     }
   delay(15);
   readData(rawData,6);
@@ -593,13 +592,13 @@ uint8_t DFRobot_SHT3x::readData(void *pBuf, size_t size) {
     DBG("pBuf ERROR!! : null pointer");
   }
   uint8_t * _pBuf = (uint8_t *)pBuf;
-  //读取芯片返回的数据
+
   _pWire->requestFrom(_address,size);
   uint8_t len = 0;
   for (uint8_t i = 0 ; i < size; i++) {
     _pBuf[i] = _pWire->read();
     len++;
   }
-  _pWire->endTransmission();
+
   return len;
 }

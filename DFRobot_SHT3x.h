@@ -22,6 +22,11 @@
 #else
 #define DBG(...)
 #endif
+
+#define SHT3X_CMD_GETDATA_POLLING_H (0x2400) // measurement: polling, high repeatability
+#define SHT3X_CMD_GETDATA_POLLING_M (0x240B) // measurement: polling, medium repeatability
+#define SHT3X_CMD_GETDATA_POLLING_L (0x2416) // measurement: polling, low repeatability
+
 #define SHT3X_CMD_READ_SERIAL_NUMBER             (0x3780)///<  Read the chip serial number
 #define SHT3X_CMD_GETDATA_H_CLOCKENBLED          (0x2C06)///<  Measurement:high repeatability
 #define SHT3X_CMD_GETDATA_M_CLOCKENBLED          (0x2C0D)///<  Measurement: medium repeatability
@@ -91,17 +96,17 @@ public:
    * @n                            '1' : at least one pending alert
   */
   typedef struct {
-    uint8_t writeDataChecksumStatus : 1;
-    uint8_t commandStatus : 1;
-    uint8_t reserved0 : 2;
-    uint8_t systemResetDeteced : 1;
-    uint8_t reserved1 : 5;
-    uint8_t temperatureAlert : 1;
-    uint8_t humidityAlert : 1;
-    uint8_t reserved2 : 1;
-    uint8_t heaterStaus :1;
-    uint8_t reserved3 :1;
-    uint8_t alertPendingStatus :1;
+    uint16_t writeDataChecksumStatus : 1;
+    uint16_t commandStatus : 1;
+    uint16_t reserved0 : 2;
+    uint16_t systemResetDeteced : 1;
+    uint16_t reserved1 : 5;
+    uint16_t temperatureAlert : 1;
+    uint16_t humidityAlert : 1;
+    uint16_t reserved2 : 1;
+    uint16_t heaterStaus :1;
+    uint16_t reserved3 :1;
+    uint16_t alertPendingStatus :1;
   }__attribute__ ((packed)) sStatusRegister_t;
   
   /**
