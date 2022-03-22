@@ -30,11 +30,11 @@ SHT35       |     ±0.1  @20-60 °C  |          ±1.5 @0-80% RH  |  -40-125 °C/
 
 ## 产品链接（https://www.dfrobot.com.cn/goods-2695.html）
 
-   SEN0330:Fermion: SHT30数字温湿度传感器
-   SEN0331:Fermion: SHT31数字温湿度传感器
-   SEN0332:Fermion: SHT31-F数字温湿度传感器
-   SEN0333:Fermion: SHT35-F数字温湿度传感器(Breakout)
-   SEN0334:Gravity: SHT31-F数字温湿度传感器
+   SEN0330:Fermion: SHT30数字温湿度传感器<br>
+   SEN0331:Fermion: SHT31数字温湿度传感器<br>
+   SEN0332:Fermion: SHT31-F数字温湿度传感器<br>
+   SEN0333:Fermion: SHT35-F数字温湿度传感器(Breakout)<br>
+   SEN0334:Gravity: SHT31-F数字温湿度传感器<br>
 
 ## 目录
 

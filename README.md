@@ -31,11 +31,11 @@ SHT35      |     ±0.1  @20-60°C        |        ±1.5 @0-80% RH         |  -40
 
 ## Product Link（https://www.dfrobot.com/product-2016.html）
 
-   SEN0330:Fermion: SHT30 Digital Temperature & Humidity Sensor (Breakout)
-   SEN0331:Fermion: SHT31 Digital Temperature & Humidity Sensor (Breakout)
-   SEN0332:Fermion: SHT31-F Digital Temperature & Humidity Sensor (Breakout)
-   SEN0333:Fermion: SHT35 Digital Temperature & Humidity Sensor (Breakout)
-   SEN0334:Gravity: SHT31-F Digital Temperature and Humidity Sensor
+   SEN0330:Fermion: SHT30 Digital Temperature & Humidity Sensor (Breakout)<br>
+   SEN0331:Fermion: SHT31 Digital Temperature & Humidity Sensor (Breakout)<br>
+   SEN0332:Fermion: SHT31-F Digital Temperature & Humidity Sensor (Breakout)<br>
+   SEN0333:Fermion: SHT35 Digital Temperature & Humidity Sensor (Breakout)<br>
+   SEN0334:Gravity: SHT31-F Digital Temperature and Humidity Sensor<br>
 ## Table of Contents
 
 * [Summary](#summary)
