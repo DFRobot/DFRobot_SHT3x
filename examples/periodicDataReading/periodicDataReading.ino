@@ -2,7 +2,7 @@
  * @file periodicDataReading.ino
  * @brief Read ambient temperature (C/F) and relative humidity (%RH) in cycle read mode.
  * @details Experimental phenomenon: Before we start, please set the read frequency and repeatability of the read
- * (the difference between the data measured by the chip under the same measurement conditions),
+ * @n (the difference between the data measured by the chip under the same measurement conditions),
  * and enter the periodic read mode, and then read the temperature and humidity data.
  * @n The temperature and humidity data will be printed at the serial port, after 10 seconds of operation.
  * @n It will exit the cycle mode and enter 2 measurement mode: Single measurement mode and Cycle measurement mode.

@@ -2,7 +2,7 @@
  * @file alert.ino
  * @brief Temperature and humidity over-threshold alarm.
  * @details Experimental phenomenon: The user can customize the temperature and humidity thresholds, 
- * and the ALERT pin generates an alarm signal once the values exceed the user-defined threshold.
+ * @n and the ALERT pin generates an alarm signal once the values exceed the user-defined threshold.
  * @n NOTE: The ALERT pin on the sensor should be connected to the interrupt pin on the main panel when using this function.
  * @copyright  Copyright (c) 2010 DFRobot Co.Ltd (http://www.dfrobot.com)
  * @License  The MIT License (MIT)

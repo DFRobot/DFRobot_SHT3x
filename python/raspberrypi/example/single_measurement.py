@@ -3,14 +3,14 @@
    @file single_measurement.py
    @brief Read ambient temperature (C/F) and relative humidity (%RH) in single-read mode.
    @n Experimental phenomenon: the chip defaults in this mode, we need to send instructions to enable the chip collect data,
-   which means the repeatability of the read needs to be set (the difference between the data measured by the chip under the same measurement conditions)
-   then read the temperature and humidity data and print the data in the serial port.
+   @n which means the repeatability of the read needs to be set (the difference between the data measured by the chip under the same measurement conditions)
+   @n then read the temperature and humidity data and print the data in the serial port.
    @n Single measure mode: read data as needed, power consumption is relatively low, the chip idle state only costs 0.5mA. 
    @copyright  Copyright (c) 2010 DFRobot Co.Ltd (http://www.dfrobot.com)
    @License     The MIT License (MIT)
    @author      [yangfeng]<feng.yang@dfrobot.com>
-   version  V1.0
-   date  2021-06-11
+   @version  V1.0
+   @date  2021-06-11
    @url https://github.com/DFRobot/DFRobot_SHT3x
 '''
 
