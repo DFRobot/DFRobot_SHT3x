@@ -291,25 +291,25 @@ uint8_t  DFRobot_SHT3x::setTemperatureLimitC(float highset,float highclear, floa
     if(readLimitData(SHT3X_CMD_READ_HIGH_ALERT_LIMIT_SET,limit) != 0) {
       return 1;
     }
-    _highset = (_highset >> 7) |(limit[1] & 0xfe00);
+    _highset = (_highset >> 7) |(limit[0] & 0xfe00);
     writeLimitData(SHT3X_CMD_WRITE_HIGH_ALERT_LIMIT_SET,_highset);
     _highclear = convertRawTemperature(highclear);
     if(readLimitData(SHT3X_CMD_READ_HIGH_ALERT_LIMIT_CLEAR,limit) != 0){
       return 1;
     }
-    _highclear = (_highclear >> 7) |(limit[1] & 0xfe00);
+    _highclear = (_highclear >> 7) |(limit[0] & 0xfe00);
     writeLimitData(SHT3X_CMD_WRITE_HIGH_ALERT_LIMIT_CLEAR,_highclear);
     _lowclear = convertRawTemperature(lowclear);
     if(readLimitData(SHT3X_CMD_READ_LOW_ALERT_LIMIT_CLEAR,limit) != 0){
       return 1;
     }
-    _lowclear = (_lowclear >> 7) |(limit[1] & 0xfe00);
+    _lowclear = (_lowclear >> 7) |(limit[0] & 0xfe00);
     writeLimitData(SHT3X_CMD_WRITE_LOW_ALERT_LIMIT_CLEAR,_lowclear);
     _lowset = convertRawTemperature(lowset);
     if(readLimitData(SHT3X_CMD_READ_LOW_ALERT_LIMIT_SET,limit) != 0){
       return 1;
     }
-    _lowset = (_lowset >> 7) |(limit[1] & 0xfe00);
+    _lowset = (_lowset >> 7) |(limit[0] & 0xfe00);
     writeLimitData(SHT3X_CMD_WRITE_LOW_ALERT_LIMIT_SET,_lowset);
   } else {
     return 1;
@@ -337,26 +337,26 @@ uint8_t DFRobot_SHT3x::setHumidityLimitRH(float highset,float highclear, float l
     if(readLimitData(SHT3X_CMD_READ_HIGH_ALERT_LIMIT_SET,limit) != 0) {
       return 1;
     }
-    _highset = (_highset & 0xFE00) |(limit[1] & 0x1FF);
+    _highset = (_highset & 0xFE00) |(limit[0] & 0x1FF);
     writeLimitData(SHT3X_CMD_WRITE_HIGH_ALERT_LIMIT_SET,_highset);
     
     _highclear = convertRawHumidity(highclear);
     if(readLimitData(SHT3X_CMD_READ_HIGH_ALERT_LIMIT_CLEAR,limit) != 0){
       return 1;
     }
-    _highclear = (_highclear & 0xFE00) |(limit[1] & 0x1FF);
+    _highclear = (_highclear & 0xFE00) |(limit[0] & 0x1FF);
     writeLimitData(SHT3X_CMD_WRITE_HIGH_ALERT_LIMIT_CLEAR,_highclear);
     _lowclear = convertRawHumidity(lowclear);
     if(readLimitData(SHT3X_CMD_READ_LOW_ALERT_LIMIT_CLEAR,limit) != 0){
       return 1;
     }
-    _lowclear = (_lowclear & 0xFE00) |(limit[1] & 0x1FF);
+    _lowclear = (_lowclear & 0xFE00) |(limit[0] & 0x1FF);
     writeLimitData(SHT3X_CMD_WRITE_LOW_ALERT_LIMIT_CLEAR,_lowclear);
     _lowset = convertRawHumidity(lowset);
     if(readLimitData(SHT3X_CMD_READ_LOW_ALERT_LIMIT_SET,limit) != 0){
       return 1;
     }
-    _lowset = (_lowset & 0xFE00) |(limit[1] & 0x1FF);
+    _lowset = (_lowset & 0xFE00) |(limit[0] & 0x1FF);
     writeLimitData(SHT3X_CMD_WRITE_LOW_ALERT_LIMIT_SET,_lowset);
   } else {
     return 1;
